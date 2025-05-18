@@ -50,6 +50,23 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
+### Building for Production
+
+```sh
+npm run build
+```
+
+Preview the production build:
+
+```sh
+npm run preview
+```
+
+### Linting
+
+```sh
+npm run lint
+```
 
 ## Customization
 
