@@ -31,7 +31,7 @@ A modern Todo application built with React, TypeScript, Vite, and Tailwind CSS.
 
 1. **Clone the repository:**
    ```sh
-   git clone <your-repo-url>
+   git clone git@github.com:zakiamansyah/react-todo-app.git
    cd react-todo-app
    ```
 
