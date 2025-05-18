@@ -1,4 +1,3 @@
-// Auth types
 export interface User {
   userId: number;
   username: string;
@@ -18,7 +17,6 @@ export interface LoginResponse {
   message: string;
 }
 
-// Todo types
 export interface Todo {
   id: number;
   title: string;
@@ -38,5 +36,4 @@ export interface UpdateTodoPayload {
   completed?: number;
 }
 
-// Theme type
 export type Theme = 'light' | 'dark';

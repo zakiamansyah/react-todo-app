@@ -21,16 +21,13 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
-  // Initialize theme from localStorage or default to 'light'
   const [theme, setTheme] = useState<Theme>(() => {
     const savedTheme = localStorage.getItem('theme') as Theme;
-    // Check if the user has a system preference for dark mode
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     return savedTheme || (prefersDark ? 'dark' : 'light');
   });
 
-  // Update the class on the html element when theme changes
   useEffect(() => {
     const htmlElement = document.documentElement;
     if (theme === 'dark') {
@@ -39,7 +36,6 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
       htmlElement.classList.remove('dark');
     }
     
-    // Save the theme preference
     localStorage.setItem('theme', theme);
   }, [theme]);
 

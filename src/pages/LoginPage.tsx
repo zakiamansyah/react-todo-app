@@ -43,7 +43,6 @@ const LoginPage: React.FC = () => {
     }
   };
 
-  // Pre-fill demo credentials
   const fillDemoCredentials = () => {
     const form = document.getElementById('login-form') as HTMLFormElement;
     if (form) {
