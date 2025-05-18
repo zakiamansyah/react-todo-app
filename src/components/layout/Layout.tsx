@@ -13,7 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
       <footer className="py-4 text-center text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800">
-        &copy; {new Date().getFullYear()} TodoApp. All rights reserved.
+        &copy; {new Date().getFullYear()} All rights reserved.
       </footer>
     </div>
   );
