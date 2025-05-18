@@ -18,10 +18,11 @@ const LoginPage: React.FC = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<LoginFormData>({
     defaultValues: {
@@ -31,6 +32,7 @@ const LoginPage: React.FC = () => {
   });
 
   const onSubmit = async (data: LoginFormData) => {
+    setIsLoading(true);
     try {
       await login(data.email, data.password);
       toast.success('Login successful!');
@@ -44,16 +46,8 @@ const LoginPage: React.FC = () => {
   };
 
   const fillDemoCredentials = () => {
-    const form = document.getElementById('login-form') as HTMLFormElement;
-    if (form) {
-      const emailInput = form.elements.namedItem('email') as HTMLInputElement;
-      const passwordInput = form.elements.namedItem('password') as HTMLInputElement;
-      
-      if (emailInput && passwordInput) {
-        emailInput.value = 'adx-01@mail.com';
-        passwordInput.value = '1234567890';
-      }
-    }
+    setValue('email', 'adx-01@mail.com');
+    setValue('password', '1234567890');
   };
 
   return (
@@ -61,7 +55,7 @@ const LoginPage: React.FC = () => {
       <div className="absolute top-4 right-4">
         <ThemeToggle />
       </div>
-      
+
       <Card className="w-full max-w-md">
         <div className="text-center mb-6">
           <div className="inline-flex items-center justify-center">
@@ -74,7 +68,7 @@ const LoginPage: React.FC = () => {
             Sign in to manage your tasks
           </p>
         </div>
-        
+
         <form id="login-form" onSubmit={handleSubmit(onSubmit)}>
           <Input
             label="Email"
@@ -90,7 +84,7 @@ const LoginPage: React.FC = () => {
               },
             })}
           />
-          
+
           <Input
             label="Password"
             type="password"
@@ -105,7 +99,7 @@ const LoginPage: React.FC = () => {
               },
             })}
           />
-          
+
           <Button
             type="submit"
             variant="primary"
@@ -116,7 +110,7 @@ const LoginPage: React.FC = () => {
             Sign In
           </Button>
         </form>
-        
+
         <div className="mt-4 text-center">
           <button
             type="button"
